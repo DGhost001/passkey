@@ -9,12 +9,12 @@
 class PassKeyApplication: public UI::Application
 {
     public:
-        PassKeyApplication(UI::Theme const& theme);
+        PassKeyApplication(UI::Theme const& theme, UI::Application * parent = nullptr);
         virtual ~PassKeyApplication();
 
         void update() override;
 
-        void updateStatusBar(UsbKeyboard::EventData const * const);
+        virtual void onKeyboardEvent(int32_t eventId, UsbKeyboard::EventData const * event) override;
 
     private:
         enum class ApplicationState

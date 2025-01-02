@@ -2,8 +2,8 @@
 #include "ec1834.hpp"
 
 namespace UI {
-    Application::Application():
-        Widget(getFullFrameRect()),
+    Application::Application(Application * parent):
+        Widget(getFullFrameRect(), parent),
         tft_(),
         backBuffer_(&tft_)
     {

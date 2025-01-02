@@ -8,7 +8,7 @@ namespace UI
         child_(nullptr),
         nextSibling_(nullptr),
         faceColor_(DefaultFaceColor),
-	hidden_(false)
+    hidden_(false)
     {
         if (parent_) {
 
@@ -47,7 +47,7 @@ namespace UI
 
     void Widget::redraw(TFT_eSprite &drawBuffer, const Rect &clientArea) const
     {
-	if (hidden_) return;
+    if (hidden_) return;
 
         Rect const newClientArea = clientArea.intersect(area_);
 
@@ -67,5 +67,15 @@ namespace UI
     {
         Rect area = clientArea.toScreen();
         drawBuffer.fillRect(area.x, area.y, area.width, area.height, faceColor_);
+    }
+
+    void Widget::onNotify(Widget*, NotificationCode)
+    {
+        // Default action is to do nothing
+    }
+
+    void Widget::onKeyboardEvent(int32_t, UsbKeyboard::EventData const *)
+    {
+        // Default action is to do nothing
     }
 }

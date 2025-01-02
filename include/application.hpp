@@ -7,7 +7,7 @@ namespace UI {
 class Application: public Widget
 {
     public:
-        Application();
+        Application(Application * parent = nullptr);
 
         static Rect getFullFrameRect() {return Rect(0,0,TFT_HEIGHT,TFT_WIDTH).toLogical(); }
 
